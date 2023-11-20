@@ -1,7 +1,3 @@
-import {errors} from "@playwright/test";
-import {getDefaultResultOrder} from "dns";
-import {setMaxIdleHTTPParsers} from "http";
-
 /**
  * @param {number} diameter
  * @return {number} sphere volume
@@ -9,11 +5,11 @@ import {setMaxIdleHTTPParsers} from "http";
 
 export function computeSphereVolume(diameter) {
     if (isNaN(diameter)) {
-        throw "fdsgsd";
+        throw "wrong input";
     } else if (diameter < 0) {
-        throw "fdsgsd";
+        throw "wrong input 1";
     } else if (diameter === String) {
-        throw "fdsgsd";
+        throw "wrong input 2";
     }
 
     var r = diameter / 2;
@@ -31,8 +27,7 @@ export function roundNumberToOneDecimals(n) {
         throw new Error();
     }
 
-    let res = Math.round(n * 10) / 10
-    return res;
+    return Math.round(n * 10) / 10;
 
 }
 

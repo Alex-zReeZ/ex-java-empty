@@ -8,8 +8,6 @@
  *   can lead to unexpected behaviors
  */
 
-import {errors} from "@playwright/test";
-
 /**
  * @param {number} n
  * @return {boolean} true if n is bigger than 2

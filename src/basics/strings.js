@@ -32,5 +32,3 @@ export function findAndReplacePreservingCase(needle, haystack, newWord) {
     });
 
 }
-
-

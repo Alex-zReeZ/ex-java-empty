@@ -1,5 +1,5 @@
 /**
- * In JavaScript objects are really diffrent form Java or other object based languages.
+ * In JavaScript objects are really different form Java or other object based languages.
  * The syntax to use it looks more like declaring structs, but the can also carry methods.
  * https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#objects
@@ -10,7 +10,10 @@
  * The values of the properties should be "Toto", "Tutu"
  */
 export function crateUserObject() {
-  //
+  return {
+    first_name: "Toto",
+    last_name: "Tutu"
+  }
 }
 
 /**
@@ -19,7 +22,12 @@ export function crateUserObject() {
  * @return string a concatenation of the first and last name, separated with a space
  */
 export function accessPropertiesInObjects(object) {
-  //
+
+  if (object.hasOwnProperty("first_name") && object.hasOwnProperty("last_name")) {
+    return `${object.first_name} ${object.last_name};
+  } else {
+    return "";
+  }
 }
 
 /**
@@ -34,7 +42,7 @@ export function iteratesThroughObjectValuesAndProperties(object) {
 }
 
 /**
- * Return the name of the first younger and first older user in the array
+ * Return the name of the first younger and last older user in the array
  * @param {array<{name: string, age: number}>} users
  * @return {{younger: string, older: string}}
  */

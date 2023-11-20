@@ -31,6 +31,6 @@ test("Dom exercise, user list correctly generated", async ({ page }) => {
 
   await expect(l.filter({ hasText: "Toto" })).toHaveCount(1)
   await expect(l.filter({ hasText: "Tutu" })).toHaveCount(1)
-  await expect(l.getByText("Tata")).toHaveCSS("color", "rgb(112, 161, 255)")
-  await expect(l.getByText("Titi")).toHaveCSS("color", "rgb(164, 176, 190)")
+  await expect(l.getByText("Tata")).toHaveCSS("background-color", "rgb(112, 161, 255)")
+  await expect(l.getByText("Titi")).toHaveCSS("background-color", "rgb(164, 176, 190)")
 })
