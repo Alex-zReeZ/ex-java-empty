@@ -5,6 +5,8 @@
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#objects
  */
 
+import {resolvePackageEntry} from "vite";
+
 /**
  * @return {Object} you should return a new object containing two properties, first_name and last_name.
  * The values of the properties should be "Toto", "Tutu"
@@ -22,11 +24,8 @@ export function crateUserObject() {
  * @return string a concatenation of the first and last name, separated with a space
  */
 export function accessPropertiesInObjects(object) {
-
   if (object.hasOwnProperty("first_name") && object.hasOwnProperty("last_name")) {
-    return `${object.first_name} ${object.last_name};
-  } else {
-    return "";
+    return `${object.first_name} ${object.last_name}`;
   }
 }
 
@@ -38,7 +37,13 @@ export function accessPropertiesInObjects(object) {
  * and all original object values mapped to lower case
  */
 export function iteratesThroughObjectValuesAndProperties(object) {
-  //
+  const keys = Object.keys(object).map(key => key.toUpperCase());
+  const values = Object.values(object).map(value => value.toLowerCase());
+
+  return {
+    keys,
+    values,
+  };
 }
 
 /**

@@ -17,7 +17,6 @@ export function computeSphereVolume(diameter) {
 }
 
 
-
 /**
  * @param {number} n
  * @return {number} number rounded to one decimal
@@ -46,12 +45,10 @@ export function computeAverage(grades) {
         }
     }
 
-
     let sum = 0;
     for (let n = 0; n < grades.length; n++) {
         sum += grades[n];
     }
-
     return sum / grades.length;
 }
 
@@ -69,14 +66,12 @@ export function roundedAverage(grades) {
             }
         }
     }
-
     let sum = 0;
     for (let n = 0; n < grades.length; n++) {
         sum += grades[n];
     }
     sum = sum / grades.length;
-
-    return  Math.round(sum * 10) / 10
+    return Math.round(sum * 10) / 10
 
 }
 
