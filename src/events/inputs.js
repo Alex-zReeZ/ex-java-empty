@@ -4,8 +4,13 @@
  * If input his empty, you should not trigger the alert
  */
 export function displayInputContentInAlertOnEnterKey() {
-  let trigger = document.getElementById("write-some-text");
-  trigger.inputMode
+    let trigger = document.getElementById("write-some-text");
+
+    trigger.addEventListener("keypress", (event) => {
+        if (event.key === "Enter") {
+            alert(trigger.value)
+        }
+    })
 }
 
 /**
@@ -14,13 +19,36 @@ export function displayInputContentInAlertOnEnterKey() {
  * the text should be added to a list of elements with id "list".
  */
 export function addElementsInListOnEnterKey() {
-  //
+    let addElement = document.getElementById("list-input");
+    let list = document.getElementById("list");
+
+    addElement.addEventListener("keypress", (event) => {
+        if (event.key === "Enter") {
+            const text = addElement.value.trim();
+            if (text !== "") {
+                const li = document.createElement("li");
+                li.textContent = text;
+                list.appendChild(li);
+                addElement.value = "";
+            }
+        }
+    });
+    addElement.addEventListener("blur", () => {
+        const text = addElement.value.trim();
+        if (text !== "") {
+            const li = document.createElement("li");
+            li.textContent = text;
+            list.appendChild(li);
+            addElement.value = "";
+        }
+    });
 }
+
 
 /**
  * Add functionalities to the list. Now, when you click on one of the li, the element should be removed.
  * Use the same list as the previous exercise. "#list"
  */
-export function removeElementsFromListWhenClicked() {
-  //
+export function removeElementsFromListWhenClickeüd() {
+     
 }
