@@ -1,10 +1,19 @@
+import * as events from "events";
+
 /**
  * Register a new event listener that will retrieve the position of the mouse on the screen
  * and display the coordinates on the p with id "mouse-coordinates".
  * You need to display coordinates as follows : "x: 232, y: 332
  */
 export function mouseMovements() {
-  //
+    let mousePositionElement = document.getElementById("mouse-coordinates");
+
+    document.addEventListener("mouseover", function(event) {
+        const mouseX = event.clientX;
+        const mouseY = event.clientY;
+
+        mousePositionElement.textContent = "x: " + mouseX + ", y: " + mouseY;
+    });
 }
 
 /**

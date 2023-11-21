@@ -72,10 +72,6 @@ test("Add events on list on input change", async ({ page }) => {
   await expect(page.getByLabel("Add text to list :")).toHaveValue("")
 })
 
-
-
-
-
 test("Nothing is added to list on empty input", async ({ page }) => {
   await page.getByLabel("Add text to list :").click()
   await page.getByLabel("Add text to list :").fill("dfsdf")
@@ -97,6 +93,12 @@ test("Should remove elements in list on click", async ({ page }) => {
   await l.click()
   await expect(l).toHaveCount(0)
 })
+
+
+
+
+
+
 
 test("Should display mouse coordinates", async ({ page }) => {
   const l = page.locator("#mouse-coordinates")

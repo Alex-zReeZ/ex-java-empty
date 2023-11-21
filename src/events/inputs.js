@@ -49,6 +49,9 @@ export function addElementsInListOnEnterKey() {
  * Add functionalities to the list. Now, when you click on one of the li, the element should be removed.
  * Use the same list as the previous exercise. "#list"
  */
-export function removeElementsFromListWhenClickeüd() {
-     
+export function removeElementsFromListWhenClicked() {
+    let remove = document.getElementById("list")
+    remove.addEventListener("click", () => {
+        remove.remove()
+        })
 }
