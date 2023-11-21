@@ -1,4 +1,4 @@
-import * as events from "events";
+// noinspection JSVoidFunctionReturnValueUsed
 
 /**
  * Register a new event listener that will retrieve the position of the mouse on the screen
@@ -26,7 +26,15 @@ export function mouseMovements() {
  * Third, when you loose focus of the field, you need to reset the border color to the default one.
  */
 export function hoverFocusAndBlur() {
-  //
+  let focusMe = document.getElementById("focus-me");
+  focusMe.addEventListener("mouseover", function (event) {
+      if (focus(focusMe) === true) {
+          focusMe.taget.style.color = '#'+(Math.random()*0xFFFFFF<<0).toString(16)
+
+
+      }
+  })
+
 }
 
 /**

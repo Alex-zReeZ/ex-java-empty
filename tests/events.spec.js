@@ -94,12 +94,6 @@ test("Should remove elements in list on click", async ({ page }) => {
   await expect(l).toHaveCount(0)
 })
 
-
-
-
-
-
-
 test("Should display mouse coordinates", async ({ page }) => {
   const l = page.locator("#mouse-coordinates")
   await page.mouse.move(200, 200)
