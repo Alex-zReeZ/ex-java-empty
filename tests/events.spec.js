@@ -29,6 +29,10 @@ test("React to a click event, dom element creation", async ({ page }) => {
   await expect(page.getByText("clicked")).toBeVisible()
 })
 
+
+
+
+
 test("Alert dialog is fired on enter Key ?", async ({ page }) => {
   const dialogPromise = page.waitForEvent("dialog", (dialog) => {
     dialog.dismiss()
@@ -67,6 +71,10 @@ test("Add events on list on input change", async ({ page }) => {
   await expect(page.locator("#list").getByText("Test in list")).toHaveCount(1)
   await expect(page.getByLabel("Add text to list :")).toHaveValue("")
 })
+
+
+
+
 
 test("Nothing is added to list on empty input", async ({ page }) => {
   await page.getByLabel("Add text to list :").click()

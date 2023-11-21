@@ -4,7 +4,8 @@
  * If input his empty, you should not trigger the alert
  */
 export function displayInputContentInAlertOnEnterKey() {
-  //
+  let trigger = document.getElementById("write-some-text");
+  trigger.inputMode
 }
 
 /**
