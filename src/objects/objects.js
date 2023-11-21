@@ -5,8 +5,6 @@
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures#objects
  */
 
-import {resolvePackageEntry} from "vite";
-
 /**
  * @return {Object} you should return a new object containing two properties, first_name and last_name.
  * The values of the properties should be "Toto", "Tutu"
@@ -52,7 +50,12 @@ export function iteratesThroughObjectValuesAndProperties(object) {
  * @return {{younger: string, older: string}}
  */
 export function retrieveMaximumMinimumUserAges(users) {
-  //
+  users.sort((a, b) => a.age - b.age);
+
+  const younger =  users[0].name
+  const older = users[users.length - 1].name
+
+  return { younger: younger, older: older}
 }
 
 /**
@@ -62,7 +65,7 @@ export function retrieveMaximumMinimumUserAges(users) {
  * @return {Object} An object retried by parsing the string
  */
 export function parseJavaScriptObjectNotation(string) {
-  //
+ return JSON.parse(string)
 }
 
 /**
@@ -70,5 +73,5 @@ export function parseJavaScriptObjectNotation(string) {
  * @return {string} An string representing the given object
  */
 export function stringifyJavaScriptObjectNotation(object) {
-  //
+  return JSON.stringify(object)
 }

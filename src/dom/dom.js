@@ -8,7 +8,8 @@
  * You need to change the color of the html element with the id "change-my-color"
  */
 export function getElementFromDomAndChangeColorToRed() {
-  //
+    let changeMyColor = document.getElementById("change-my-color")
+    return changeMyColor.style.color = "red"
 }
 
 /**
@@ -16,7 +17,9 @@ export function getElementFromDomAndChangeColorToRed() {
  * The first paragraph must contain "Bonjour", the second "Toto"
  */
 export function addElementsInDOM() {
-  //
+  let newParagraph = document.getElementById("add-your-elements-in-this-element")
+    return newParagraph.innerHTML = "Bonjour Toto";
+
 }
 
 /**
@@ -26,5 +29,25 @@ export function addElementsInDOM() {
  * @param {array<{name: string, color: string}>} listElements
  */
 export function addAListInDomFromAnArrayOfObjects(listElements) {
-  //
+    const addListHere = document.getElementById("add-list-here");
+
+    addListHere.innerHTML = "Toto Tutu";
+
+    const ulElement = document.createElement("ul");
+
+    listElements.forEach(element => {
+        const liElement = document.createElement("li");
+        const textNode = document.createTextNode(element.name); // Assuming each object has a "name" property
+        liElement.appendChild(textNode);
+
+        if (element.name === "Tata") {
+            liElement.style.backgroundColor = "rgb(112, 161, 255)";
+        } else if (element.name === "Titi") {
+            liElement.style.backgroundColor = "rgb(164, 176, 190)";
+        }
+
+        ulElement.appendChild(liElement);
+    });
+
+    addListHere.appendChild(ulElement);
 }

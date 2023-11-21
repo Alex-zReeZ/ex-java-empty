@@ -8,6 +8,8 @@
  *   can lead to unexpected behaviors
  */
 
+import {isString} from "util";
+
 /**
  * @param {number} n
  * @return {boolean} true if n is bigger than 2
@@ -25,8 +27,14 @@ export function isBiggerThan2(n) {
  * @return {boolean} true if m is a multiple of n
  */
 export function isMult(n, m) {
+    if (typeof m !== 'number' || typeof n !== 'number' || isNaN(n) || isNaN(m)) {
+        throw new Error("Unsupported types");
+    }
+
   if (n % m === 0) {
     return true
+  } else {
+      return false
   }
 
 }
