@@ -29,10 +29,6 @@ test("React to a click event, dom element creation", async ({ page }) => {
   await expect(page.getByText("clicked")).toBeVisible()
 })
 
-
-
-
-
 test("Alert dialog is fired on enter Key ?", async ({ page }) => {
   const dialogPromise = page.waitForEvent("dialog", (dialog) => {
     dialog.dismiss()

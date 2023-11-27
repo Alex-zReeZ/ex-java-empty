@@ -1,4 +1,3 @@
-
 /**
  * Register a new event listener that will retrieve the position of the mouse on the screen
  * and display the coordinates on the p with id "mouse-coordinates".
@@ -35,7 +34,6 @@ export function hoverFocusAndBlur() {
         originalLabel.push(i.textContent);
     }
 
-
     function getRandomColor() {
         const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#00ffff', '#ff00ff'];
         const filteredColors = colors.filter(color => color !== previousBorderColor);
@@ -54,7 +52,6 @@ export function hoverFocusAndBlur() {
             }
         });
     });
-
 
     inputElement.addEventListener("focus", function() {
         const newBorderColor = getRandomColor();
@@ -75,20 +72,21 @@ export function hoverFocusAndBlur() {
  * precedent exercise will lose focus of the field.
  * Take the opportunity to also apply this colour to the text of the 2 input labels.
  */
+
 export function changesOnInputEvents() {
-/*  let randomColorLetter = document.getElementById("focus-me");
-  const originalBorderColor = window.getComputedStyle(inputElement).borderColor;
-
-  function getRandomColor() {
-      const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#00ffff', '#ff00ff'];
-      const filteredColors = colors.filter(color => color !== previousBorderColor);
-      return filteredColors[Math.floor(Math.random() * filteredColors.length)];
-  }
-
-  randomColorLetter.addEventListener("keypress", () => {
-      if (emitKeypressEvents() === True) {
-          const newBorderColor = !getRandomColor();
-          originalBorderColor === newBorderColor
-      }
-    })*/
+    const input = document.getElementById("focus-me")
+    input.addEventListener("input", () => {
+        const newColor = getRandomColor()
+        input.style.borderColor = newColor
+        const labels = document.querySelectorAll(`label[for='${input.id}']`)
+        labels.forEach((label) => {
+            label.style.color = newColor
+        })
+    })
+}
+function getRandomColor() {
+    let x = Math.floor(Math.random() * 256)
+    let y = Math.floor(Math.random() * 256)
+    let z = Math.floor(Math.random() * 256)
+    return `rgb(${x},${y},${z})`
 }
