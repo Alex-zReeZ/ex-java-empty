@@ -1,5 +1,4 @@
 
-
 /**
  * Register a new event listener that will retrieve the position of the mouse on the screen
  * and display the coordinates on the p with id "mouse-coordinates".
@@ -30,24 +29,32 @@ export function hoverFocusAndBlur() {
     const labels = document.querySelectorAll('label[for="focus-me"]');
     const originalBorderColor = window.getComputedStyle(inputElement).borderColor;
     let previousBorderColor = originalBorderColor;
+    let originalLabel = [];
+
+    for (let i of inputElement.labels) {
+        originalLabel.push(i.textContent);
+    }
+
 
     function getRandomColor() {
         const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#00ffff', '#ff00ff'];
         const filteredColors = colors.filter(color => color !== previousBorderColor);
         return filteredColors[Math.floor(Math.random() * filteredColors.length)];
     }
+    labels.forEach((label) => {
+        inputElement.addEventListener("mouseout", () => {
+            for (let i = 0; i < inputElement.labels.length; i++) {
+                inputElement.labels[i].textContent = originalLabel[i];
+            }
+        });
 
-    inputElement.addEventListener("mouseover", function() {
-        labels.forEach(label => {
-            label.textContent = "Yes, you hover me !";
+        inputElement.addEventListener("mouseover", function() {
+            for (let i of inputElement.labels) {
+                label.textContent = "Yes, you hover me !";
+            }
         });
     });
 
-    inputElement.addEventListener("mouseout", function() {
-        labels.forEach(label => {
-            label.textContent = "Focus me :";
-        });
-    });
 
     inputElement.addEventListener("focus", function() {
         const newBorderColor = getRandomColor();
@@ -69,5 +76,19 @@ export function hoverFocusAndBlur() {
  * Take the opportunity to also apply this colour to the text of the 2 input labels.
  */
 export function changesOnInputEvents() {
-  //
+/*  let randomColorLetter = document.getElementById("focus-me");
+  const originalBorderColor = window.getComputedStyle(inputElement).borderColor;
+
+  function getRandomColor() {
+      const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#00ffff', '#ff00ff'];
+      const filteredColors = colors.filter(color => color !== previousBorderColor);
+      return filteredColors[Math.floor(Math.random() * filteredColors.length)];
+  }
+
+  randomColorLetter.addEventListener("keypress", () => {
+      if (emitKeypressEvents() === True) {
+          const newBorderColor = !getRandomColor();
+          originalBorderColor === newBorderColor
+      }
+    })*/
 }
