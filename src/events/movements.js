@@ -1,4 +1,4 @@
-// noinspection JSVoidFunctionReturnValueUsed
+
 
 /**
  * Register a new event listener that will retrieve the position of the mouse on the screen
@@ -26,15 +26,38 @@ export function mouseMovements() {
  * Third, when you loose focus of the field, you need to reset the border color to the default one.
  */
 export function hoverFocusAndBlur() {
-  let focusMe = document.getElementById("focus-me");
-  focusMe.addEventListener("mouseover", function (event) {
-      if (focus(focusMe) === true) {
-          focusMe.taget.style.color = '#'+(Math.random()*0xFFFFFF<<0).toString(16)
+    const inputElement = document.getElementById("focus-me");
+    const labels = document.querySelectorAll('label[for="focus-me"]');
+    const originalBorderColor = window.getComputedStyle(inputElement).borderColor;
+    let previousBorderColor = originalBorderColor;
 
+    function getRandomColor() {
+        const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#00ffff', '#ff00ff'];
+        const filteredColors = colors.filter(color => color !== previousBorderColor);
+        return filteredColors[Math.floor(Math.random() * filteredColors.length)];
+    }
 
-      }
-  })
+    inputElement.addEventListener("mouseover", function() {
+        labels.forEach(label => {
+            label.textContent = "Yes, you hover me !";
+        });
+    });
 
+    inputElement.addEventListener("mouseout", function() {
+        labels.forEach(label => {
+            label.textContent = "Focus me :";
+        });
+    });
+
+    inputElement.addEventListener("focus", function() {
+        const newBorderColor = getRandomColor();
+        inputElement.style.borderColor = newBorderColor;
+        previousBorderColor = newBorderColor;
+    });
+
+    inputElement.addEventListener("blur", function() {
+        inputElement.style.borderColor = originalBorderColor;
+    });
 }
 
 /**

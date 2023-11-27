@@ -27,7 +27,6 @@ export function roundNumberToOneDecimals(n) {
     }
 
     return Math.round(n * 10) / 10;
-
 }
 
 /**
